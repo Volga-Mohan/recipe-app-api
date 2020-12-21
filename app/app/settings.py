@@ -73,26 +73,19 @@ WSGI_APPLICATION = 'app.wsgi.application'
 #Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         # 'ENGINE': 'django.db.backends.sqlite3',
-#         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         'ENGINE': 'djongo',
-#         'ENFORCE_SCHEMA': True,
-#         'NAME': 'django_mongodb_docker',
-#         'HOST': 'mongodb',
-#         'PORT': 27017,
-#         'USER': 'root',
-#         'PASSWORD': 'mongoadmin',
-#         'AUTH_SOURCE': 'admin',
-#         'AUTH_MECHANISM': 'SCRAM-SHA-1',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'recipe-app',
+        'CLIENT': {
+            'host': 'mongodb',
+            'port': 27017,
+            'username': 'root',
+            'password': 'mongoadmin',
+            'authSource': 'admin',
+            'authMechanism': 'SCRAM-SHA-1',
+        }
+        
     }
 }
 
